@@ -25,5 +25,5 @@ rjAnchorTransform.ui.show()
 Anchor a transform to world space for a specific time range. Can be used to fix sliding feet on a walk cycle. The script uses the Maya API to calculate local transforms to be key framed, by doing this there is no need to loop over the animation greatly speeding up the work flow. Existing in and out tangents will be copied when new key frames are inserted.
 
 ## Animation Demo Credits
-<a href="https://www.highend3d.com/maya/downloads/character-rigs/c/dinorig-for-maya" target="_blank"><p align="center">Harry Gladwin-Geoghegan</p></a>
-<a href="http://jonathansymmonds.com/downloads_section/" target="_blank"><p align="center">Jonathan Symmonds</p></a>
+<a href="https://www.highend3d.com/maya/downloads/character-rigs/c/dinorig-for-maya" target="_blank"><p align="left">Harry Gladwin-Geoghegan</p></a>
+<a href="http://jonathansymmonds.com/downloads_section/" target="_blank"><p align="left">Jonathan Symmonds</p></a>
