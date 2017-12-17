@@ -32,6 +32,11 @@ local transforms to be key framed, by doing this there is no need to loop over
 the animation greatly speeding up the work flow. Existing in and out tangents 
 will be copied when new key frames are inserted.
 
+Animation Demo Credits
+====
+rig: `Harry Gladwin-Geoghegan <https://www.highend3d.com/maya/downloads/character-rigs/c/dinorig-for-maya>`_
+animation: `Jonathan Symmonds <http://jonathansymmonds.com/downloads_section/>`_
+
 Code
 ====
 """
