@@ -1,0 +1,18 @@
+rjAnchorTransform package
+=========================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjAnchorTransform.ui
+   rjAnchorTransform.utils
+
+Module contents
+---------------
+
+.. automodule:: rjAnchorTransform
+    :members:
+    :undoc-members:
+    :show-inheritance:
