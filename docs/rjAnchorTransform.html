@@ -87,7 +87,9 @@
 fix sliding feet on a walk cycle. The script uses the Maya API to calculate
 local transforms to be key framed, by doing this there is no need to loop over 
 the animation greatly speeding up the work flow. Existing in and out tangents 
-will be copied when new key frames are inserted.</p>
+will be copied when new key frames are inserted. Once all keys are set an 
+euler filter is applied to the animation curves connected to the rotate
+attributes.</p>
 </div>
 <div class="section" id="animation-demo-credits">
 <h3>Animation Demo Credits<a class="headerlink" href="#animation-demo-credits" title="Permalink to this headline">¶</a></h3>
@@ -198,7 +200,7 @@ transform is already animated.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+        &#169; Copyright 2018, &#39;Robert Joosten&#39;.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>

@@ -282,7 +282,7 @@ def getOutTangent(animCurve, time):
     :param str animCurve: Animation curve to query
     :param int time:
     :return: Out tangent type
-    :rtype: 
+    :rtype: str
     """
     times = cmds.keyframe(animCurve, query=True, timeChange=True) or []
     for t in times:
@@ -300,6 +300,33 @@ def getOutTangent(animCurve, time):
 
     return "auto"
     
+# ----------------------------------------------------------------------------
+    
+def applyEulerFilter(transform):
+    """
+    Apply an euler filter to fix euler issues on curves connected to the 
+    transforms rotation attributes.
+    
+    :param str transform: Path to transform
+    """
+    # get anim curves connected to the rotate attributes
+    rotationCurves = []
+    for channel in CHANNELS: 
+        # variables
+        node = "{0}.rotate{1}".format(transform, channel)
+        
+        # get connected animation curve
+        rotationCurves.extend(
+            cmds.listConnections(
+                node, 
+                type="animCurve",
+                destination=False
+            ) or []
+        )
+        
+    # apply euler filter
+    if not rotationCurves:
+        cmds.filterCurve(*rotationCurves, filter="euler")
     
     
     

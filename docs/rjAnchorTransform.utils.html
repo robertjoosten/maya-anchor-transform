@@ -58,6 +58,21 @@ Can be used in combination with the “with” statement.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="rjAnchorTransform.utils.applyEulerFilter">
+<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">applyEulerFilter</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.applyEulerFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an euler filter to fix euler issues on curves connected to the 
+transforms rotation attributes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>transform</strong> (<em>str</em>) – Path to transform</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="rjAnchorTransform.utils.decomposeMatrix">
 <code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">decomposeMatrix</code><span class="sig-paren">(</span><em>matrix</em>, <em>rotOrder</em>, <em>rotPivot</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.decomposeMatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decompose a matrix into translation, rotation and scale values. A 
@@ -229,7 +244,7 @@ parsed time.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Out tangent type</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
 </td>
 </tr>
 </tbody>
@@ -292,7 +307,7 @@ parsed time.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+        &#169; Copyright 2018, &#39;Robert Joosten&#39;.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>

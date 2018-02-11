@@ -30,7 +30,9 @@ Anchor a transform to world space for a specific time range. Can be used to
 fix sliding feet on a walk cycle. The script uses the Maya API to calculate
 local transforms to be key framed, by doing this there is no need to loop over 
 the animation greatly speeding up the work flow. Existing in and out tangents 
-will be copied when new key frames are inserted.
+will be copied when new key frames are inserted. Once all keys are set an 
+euler filter is applied to the animation curves connected to the rotate
+attributes.
 
 Animation Demo Credits
 ====
@@ -79,7 +81,7 @@ def anchorSelection(start, end):
     # anchor transforms
     for transform in transforms:
         anchorTransform(transform, start, end)
-    
+        
 def anchorTransform(transform, start, end):
     """
     Anchor a transform for the parsed time range, ideal to fix sliding feet. 
@@ -159,3 +161,6 @@ def anchorTransform(transform, start, end):
                         v=value[j],
                         **tangents
                     )
+        
+        # apply euler filter
+        utils.applyEulerFilter(transform)
