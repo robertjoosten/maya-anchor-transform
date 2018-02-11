@@ -325,7 +325,7 @@ def applyEulerFilter(transform):
         )
         
     # apply euler filter
-    if not rotationCurves:
+    if rotationCurves:
         cmds.filterCurve(*rotationCurves, filter="euler")
     
     
