@@ -31,6 +31,7 @@ class TimeInput(utils.QWidget):
         l = utils.QLabel(self)
         l.setText(label)
         l.setFont(utils.FONT)
+        l.setFixedWidth(100)
         layout.addWidget(l)
         
         # create time
@@ -42,9 +43,56 @@ class TimeInput(utils.QWidget):
         layout.addWidget(self.time)
         
     # ------------------------------------------------------------------------
-        
+
+    @property
     def value(self):
         return self.time.value()
+        
+# ----------------------------------------------------------------------------
+        
+class DriverInput(utils.QWidget):
+    def __init__(self, parent):
+        utils.QWidget.__init__(self, parent)
+        
+        # create layout
+        layout = utils.QHBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(3)
+        
+        # create label
+        l = utils.QLabel(self)
+        l.setText("Driver")
+        l.setFont(utils.FONT)
+        l.setFixedWidth(100)
+        layout.addWidget(l)
+                
+        # create edit
+        self.edit = utils.QLineEdit(self)
+        self.edit.setPlaceholderText("World")
+        self.edit.setFont(utils.FONT)
+        self.edit.setEnabled(False)
+        layout.addWidget(self.edit)
+        
+        # create button
+        button = utils.QPushButton(self)
+        button.setText("Selected")
+        button.setFont(utils.FONT)
+        button.setFixedWidth(75)
+        button.released.connect(self.setTransform)
+        layout.addWidget(button)
+        
+    # ------------------------------------------------------------------------
+
+    @property
+    def transform(self):
+        transform = self.edit.text()
+        return transform if cmds.objExists(transform) else None
+        
+    # ------------------------------------------------------------------------
+
+    def setTransform(self):
+        selection = cmds.ls(sl=True) or [""]
+        self.edit.setText(selection[0])
     
 # ----------------------------------------------------------------------------
 
@@ -69,6 +117,13 @@ class AnchorTransformWidget(utils.QWidget):
         layout = utils.QVBoxLayout(self)
         layout.setContentsMargins(5, 5, 5, 5)
         layout.setSpacing(3)
+        
+        # create transform input
+        self.driver = DriverInput(self)
+        layout.addWidget(self.driver)
+        
+        # divider
+        layout.addWidget(divider(self))
         
         # time input
         self.start = TimeInput(self, "Start Frame", 1001)
@@ -98,6 +153,7 @@ class AnchorTransformWidget(utils.QWidget):
         button.pressed.connect(self.doAnchor)
         button.setText("Anchor Selected Transforms")
         button.setFont(utils.FONT)
+        button.setFocus()
         layout.addWidget(button)
         
     # ------------------------------------------------------------------------
@@ -138,13 +194,10 @@ class AnchorTransformWidget(utils.QWidget):
         :return: Frame range
         :rtype: list/None
         """
-        start = self.start.value()
-        end = self.end.value()
-        
-        if start >= end:
+        if self.start.value >= self.end.value:
             return
             
-        return [start, end]
+        return [self.start.value, self.end.value]
 
     def getFrameRange(self):
         """
@@ -169,7 +222,7 @@ class AnchorTransformWidget(utils.QWidget):
         if not frameRange:
             raise ValueError("No valid frame range could be found!")
             
-        anchorSelection(*frameRange)
+        anchorSelection(self.driver.transform, *frameRange)
         
 def show():
     dialog = AnchorTransformWidget(utils.mayaWindow())

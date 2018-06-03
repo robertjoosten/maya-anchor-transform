@@ -100,7 +100,7 @@ animation: <a class="reference external" href="http://jonathansymmonds.com/downl
 <h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="rjAnchorTransform.anchorSelection">
-<code class="descclassname">rjAnchorTransform.</code><code class="descname">anchorSelection</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.anchorSelection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">rjAnchorTransform.</code><code class="descname">anchorSelection</code><span class="sig-paren">(</span><em>driver</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.anchorSelection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Anchor the selected transform for the parsed time range. Uses the 
 <a class="reference internal" href="#rjAnchorTransform.anchorTransform" title="rjAnchorTransform.anchorTransform"><code class="xref py py-func docutils literal"><span class="pre">anchorTransform()</span></code></a> function. The selected transforms will be checked
 to see if all attribute channels are open for key frame if this is not 
@@ -110,6 +110,7 @@ the case a dialog box will ask for the users permission to continue.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>driver</strong> (<em>str</em>) – Path to the driver transform</li>
 <li><strong>start</strong> (<em>int</em>) – Start time value</li>
 <li><strong>end</strong> (<em>int</em>) – End time value</li>
 </ul>
@@ -121,7 +122,7 @@ the case a dialog box will ask for the users permission to continue.</p>
 
 <dl class="function">
 <dt id="rjAnchorTransform.anchorTransform">
-<code class="descclassname">rjAnchorTransform.</code><code class="descname">anchorTransform</code><span class="sig-paren">(</span><em>transform</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.anchorTransform" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">rjAnchorTransform.</code><code class="descname">anchorTransform</code><span class="sig-paren">(</span><em>transform</em>, <em>driver</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.anchorTransform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Anchor a transform for the parsed time range, ideal to fix sliding feet. 
 Function will take into account the in and out tangents in case the 
 transform is already animated.</p>
@@ -131,6 +132,7 @@ transform is already animated.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>transform</strong> (<em>str</em>) – Path to transform</li>
+<li><strong>driver</strong> (<em>str</em>) – Path to the driver transform</li>
 <li><strong>start</strong> (<em>int</em>) – Start time value</li>
 <li><strong>end</strong> (<em>int</em>) – End time value</li>
 </ul>
