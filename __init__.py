@@ -17,7 +17,7 @@ Usage
 Command Line
 ::
     import rjAnchorTransform
-    rjAnchorTransform.anchorTransform(transform, start, end)
+    rjAnchorTransform.anchorTransform(transform, driver, start, end)
     
 Display UI
 ::
@@ -51,6 +51,14 @@ __author__    = "Robert Joosten"
 __version__   = "0.1.0"
 __email__     = "rwm.joosten@gmail.com"
    
+# ----------------------------------------------------------------------------
+
+TANGENTS = [
+    "auto", "clamped", "fast", 
+    "flat", "linear", "plateau", 
+    "slow", "spline", "stepnext"
+]
+
 # ----------------------------------------------------------------------------
 
 def anchorSelection(driver, start, end):
@@ -170,16 +178,23 @@ def anchorTransform(transform, driver, start, end):
 
                     # adjust tangents
                     if animInputs and i == end:
-                        tangents["outTangentType"] = utils.getOutTangent(
+                        tangent = utils.getOutTangent(
                             animInputs[0], 
                             end
                         )
+                        
+                        if tangent in TANGENTS:
+                            tangents["outTangentType"] = tangent
+                            
                     elif animInputs and i == start:
-                        tangents["inTangentType"] = utils.getInTangent(
+                        tangent = utils.getInTangent(
                             animInputs[0], 
                             start
                         )
-                            
+                        
+                        if tangent in TANGENTS:
+                            tangents["inTangentType"] = tangent
+                        
                     # set key frame
                     cmds.setKeyframe(
                         node, 
