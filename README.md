@@ -12,7 +12,7 @@ Copy the **rjAnchorTransform** folder to your Maya scripts directory:
 Command line:
 ```python
 import rjAnchorTransform
-rjAnchorTransform.anchorTransform(transform, start, end)
+rjAnchorTransform.anchorTransform(transform, driver, start, end)
 ```
 
 Display UI:
