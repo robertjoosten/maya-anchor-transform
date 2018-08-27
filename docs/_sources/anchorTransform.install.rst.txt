@@ -1,7 +1,7 @@
-rjAnchorTransform\.utils module
+anchorTransform\.install module
 ===============================
 
-.. automodule:: rjAnchorTransform.utils
+.. automodule:: anchorTransform.install
     :members:
     :undoc-members:
     :show-inheritance:

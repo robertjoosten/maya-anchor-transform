@@ -1,22 +1,15 @@
 import os
 from maya import cmds
-from . import utils, anchorSelection
+from . import utils, commands
 
 # ----------------------------------------------------------------------------
 
-def divider(parent):
-    """
-    Create divider ui widget.
-    
-    :param QWidget parent:
-    :rtype: QFrame
-    """
-    line = utils.QFrame(parent)
-    line.setFrameShape(utils.QFrame.HLine)
-    line.setFrameShadow(utils.QFrame.Sunken)
-    return line
-    
+
+ICON_PATH = utils.getIconPath("AT_icon.png")
+
+
 # ----------------------------------------------------------------------------
+
 
 class TimeInput(utils.QWidget):
     def __init__(self, parent, label, default):
@@ -47,9 +40,8 @@ class TimeInput(utils.QWidget):
     @property
     def value(self):
         return self.time.value()
-        
-# ----------------------------------------------------------------------------
-        
+
+
 class DriverInput(utils.QWidget):
     def __init__(self, parent):
         utils.QWidget.__init__(self, parent)
@@ -93,8 +85,10 @@ class DriverInput(utils.QWidget):
     def setTransform(self):
         selection = cmds.ls(sl=True) or [""]
         self.edit.setText(selection[0])
-    
+
+
 # ----------------------------------------------------------------------------
+
 
 class AnchorTransformWidget(utils.QWidget):
     def __init__(self, parent):
@@ -105,11 +99,7 @@ class AnchorTransformWidget(utils.QWidget):
         self.setWindowFlags(utils.Qt.Window)  
 
         self.setWindowTitle("Anchor Transform")      
-        self.setWindowIcon(
-            utils.QIcon(
-                utils.findIcon("rjAnchorTransform.png")
-            )
-        )           
+        self.setWindowIcon(utils.QIcon(ICON_PATH))
         
         self.resize(300, 100)
         
@@ -123,7 +113,7 @@ class AnchorTransformWidget(utils.QWidget):
         layout.addWidget(self.driver)
         
         # divider
-        layout.addWidget(divider(self))
+        layout.addWidget(utils.divider(self))
         
         # time input
         self.start = TimeInput(self, "Start Frame", 1001)
@@ -135,7 +125,7 @@ class AnchorTransformWidget(utils.QWidget):
         layout.addWidget(self.end)
         
         # divider
-        layout.addWidget(divider(self))
+        layout.addWidget(utils.divider(self))
         
         # create time control checkbox
         self.timeline = utils.QCheckBox(self)
@@ -146,7 +136,7 @@ class AnchorTransformWidget(utils.QWidget):
         layout.addWidget(self.timeline)
         
         # divider
-        layout.addWidget(divider(self))
+        layout.addWidget(utils.divider(self))
                 
         # create button
         button = utils.QPushButton(self)
@@ -221,9 +211,13 @@ class AnchorTransformWidget(utils.QWidget):
         frameRange = self.getFrameRange()
         if not frameRange:
             raise ValueError("No valid frame range could be found!")
-            
-        anchorSelection(self.driver.transform, *frameRange)
-        
+
+        commands.anchorSelection(self.driver.transform, *frameRange)
+
+
+# ----------------------------------------------------------------------------
+
+
 def show():
     dialog = AnchorTransformWidget(utils.mayaWindow())
     dialog.show()

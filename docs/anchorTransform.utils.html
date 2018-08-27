@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>rjAnchorTransform.utils module &#8212; rjAnchorTransform  &#39;&#39; documentation</title>
+    <title>anchorTransform.utils module &#8212; anchorTransform  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">rjAnchorTransform  &#39;&#39; documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">anchorTransform  &#39;&#39; documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -43,11 +43,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-rjAnchorTransform.utils">
-<span id="rjanchortransform-utils-module"></span><h1>rjAnchorTransform.utils module<a class="headerlink" href="#module-rjAnchorTransform.utils" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-anchorTransform.utils">
+<span id="anchortransform-utils-module"></span><h1>anchorTransform.utils module<a class="headerlink" href="#module-anchorTransform.utils" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="rjAnchorTransform.utils.UndoChunkContext">
-<em class="property">class </em><code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">UndoChunkContext</code><a class="headerlink" href="#rjAnchorTransform.utils.UndoChunkContext" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.UndoChunkContext">
+<em class="property">class </em><code class="descclassname">anchorTransform.utils.</code><code class="descname">UndoChunkContext</code><a class="headerlink" href="#anchorTransform.utils.UndoChunkContext" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>The undo context is used to combine a chain of commands into one undo.
 Can be used in combination with the “with” statement.</p>
@@ -58,8 +58,8 @@ Can be used in combination with the “with” statement.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.applyEulerFilter">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">applyEulerFilter</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.applyEulerFilter" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.applyEulerFilter">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">applyEulerFilter</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.applyEulerFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply an euler filter to fix euler issues on curves connected to the 
 transforms rotation attributes.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -73,8 +73,8 @@ transforms rotation attributes.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.decomposeMatrix">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">decomposeMatrix</code><span class="sig-paren">(</span><em>matrix</em>, <em>rotOrder</em>, <em>rotPivot</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.decomposeMatrix" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.decomposeMatrix">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">decomposeMatrix</code><span class="sig-paren">(</span><em>matrix</em>, <em>rotOrder</em>, <em>rotPivot</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.decomposeMatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decompose a matrix into translation, rotation and scale values. A 
 rotation order has to be provided to make sure the euler values are 
 correct.</p>
@@ -100,8 +100,8 @@ correct.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.displayConfirmDialog">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">displayConfirmDialog</code><span class="sig-paren">(</span><em>invalidAttributes</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.displayConfirmDialog" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.displayConfirmDialog">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">displayConfirmDialog</code><span class="sig-paren">(</span><em>invalidAttributes</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.displayConfirmDialog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display confirm dialog, presenting the user with the invalid attributes
 that were found.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -119,28 +119,43 @@ that were found.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.findIcon">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">findIcon</code><span class="sig-paren">(</span><em>icon</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.findIcon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loop over all icon paths registered in the XBMLANGPATH environment 
-variable ( appending the tools icon path to that list ). If the 
-icon exist a full path will be returned.</p>
+<dt id="anchorTransform.utils.divider">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">divider</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.divider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create divider ui widget.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>icon</strong> (<em>str</em>) – icon name including extention</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>parent</strong> (<em>QWidget</em>) – </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">icon path</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str or None</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">QFrame</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.getInTangent">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">getInTangent</code><span class="sig-paren">(</span><em>animCurve</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.getInTangent" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.getIconPath">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getIconPath</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getIconPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an icon path based on file name. All paths in the XBMLANGPATH variable
+processed to see if the provided icon can be found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Icon path</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str/None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="anchorTransform.utils.getInTangent">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getInTangent</code><span class="sig-paren">(</span><em>animCurve</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getInTangent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the in tangent type of the key frame closest but higher than the 
 parsed time.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -164,8 +179,8 @@ parsed time.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.getInvalidAttributes">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">getInvalidAttributes</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.getInvalidAttributes" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.getInvalidAttributes">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getInvalidAttributes</code><span class="sig-paren">(</span><em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getInvalidAttributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loop over the transform attributes of the transform and see if the 
 attributes are locked or connected to anything other than a animation 
 curve. If this is the case the attribute is invalid.</p>
@@ -184,8 +199,8 @@ curve. If this is the case the attribute is invalid.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.getMatrix">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">getMatrix</code><span class="sig-paren">(</span><em>transform</em>, <em>time=None</em>, <em>matrixType='worldMatrix'</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.getMatrix" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.getMatrix">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getMatrix</code><span class="sig-paren">(</span><em>transform</em>, <em>time=None</em>, <em>matrixType='worldMatrix'</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getMatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the matrix of the desired matrix type from the transform in a specific
 moment in time. If the transform doesn’t exist an empty matrix will be 
 returned. If not time is specified, the current time will be used.</p>
@@ -211,8 +226,8 @@ returned. If not time is specified, the current time will be used.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.getMayaTimeline">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">getMayaTimeline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.getMayaTimeline" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.getMayaTimeline">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getMayaTimeline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getMayaTimeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the object name of Maya’s timeline.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -227,8 +242,8 @@ returned. If not time is specified, the current time will be used.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.getOutTangent">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">getOutTangent</code><span class="sig-paren">(</span><em>animCurve</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.getOutTangent" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.getOutTangent">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">getOutTangent</code><span class="sig-paren">(</span><em>animCurve</em>, <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.getOutTangent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the out tangent type of the key frame closest but lower than the 
 parsed time.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -252,8 +267,8 @@ parsed time.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="rjAnchorTransform.utils.mayaWindow">
-<code class="descclassname">rjAnchorTransform.utils.</code><code class="descname">mayaWindow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjAnchorTransform.utils.mayaWindow" title="Permalink to this definition">¶</a></dt>
+<dt id="anchorTransform.utils.mayaWindow">
+<code class="descclassname">anchorTransform.utils.</code><code class="descname">mayaWindow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.utils.mayaWindow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get Maya’s main window.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -276,7 +291,7 @@ parsed time.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/rjAnchorTransform.utils.rst.txt"
+      <li><a href="_sources/anchorTransform.utils.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -303,7 +318,7 @@ parsed time.</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">rjAnchorTransform  &#39;&#39; documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">anchorTransform  &#39;&#39; documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

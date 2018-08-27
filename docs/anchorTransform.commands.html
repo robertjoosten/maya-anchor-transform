@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>anchorTransform &#8212; anchorTransform  &#39;&#39; documentation</title>
+    <title>anchorTransform.commands module &#8212; anchorTransform  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -43,24 +43,52 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="anchortransform">
-<h1>anchorTransform<a class="headerlink" href="#anchortransform" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="anchorTransform.html">anchorTransform package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="anchorTransform.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="anchorTransform.html#note">Note</a></li>
-<li class="toctree-l2"><a class="reference internal" href="anchorTransform.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="anchorTransform.commands.html">anchorTransform.commands module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="anchorTransform.install.html">anchorTransform.install module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="anchorTransform.ui.html">anchorTransform.ui module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="anchorTransform.utils.html">anchorTransform.utils module</a></li>
+  <div class="section" id="module-anchorTransform.commands">
+<span id="anchortransform-commands-module"></span><h1>anchorTransform.commands module<a class="headerlink" href="#module-anchorTransform.commands" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="anchorTransform.commands.anchorSelection">
+<code class="descclassname">anchorTransform.commands.</code><code class="descname">anchorSelection</code><span class="sig-paren">(</span><em>driver</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.commands.anchorSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anchor the selected transform for the parsed time range. Uses the 
+<a class="reference internal" href="anchorTransform.html#module-anchorTransform" title="anchorTransform"><code class="xref py py-func docutils literal"><span class="pre">anchorTransform()</span></code></a> function. The selected transforms will be checked
+to see if all attribute channels are open for key frame if this is not 
+the case a dialog box will ask for the users permission to continue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>driver</strong> (<em>str</em>) – Path to the driver transform</li>
+<li><strong>start</strong> (<em>int</em>) – Start time value</li>
+<li><strong>end</strong> (<em>int</em>) – End time value</li>
 </ul>
-</li>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="anchorTransform.commands.anchorTransform">
+<code class="descclassname">anchorTransform.commands.</code><code class="descname">anchorTransform</code><span class="sig-paren">(</span><em>transform</em>, <em>driver</em>, <em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#anchorTransform.commands.anchorTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anchor a transform for the parsed time range, ideal to fix sliding feet. 
+Function will take into account the in and out tangents in case the 
+transform is already animated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>transform</strong> (<em>str</em>) – Path to transform</li>
+<li><strong>driver</strong> (<em>str</em>) – Path to the driver transform</li>
+<li><strong>start</strong> (<em>int</em>) – Start time value</li>
+<li><strong>end</strong> (<em>int</em>) – End time value</li>
 </ul>
-</li>
-</ul>
-</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
@@ -72,7 +100,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/modules.rst.txt"
+      <li><a href="_sources/anchorTransform.commands.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>

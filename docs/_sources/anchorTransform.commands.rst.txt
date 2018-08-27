@@ -1,0 +1,7 @@
+anchorTransform\.commands module
+================================
+
+.. automodule:: anchorTransform.commands
+    :members:
+    :undoc-members:
+    :show-inheritance:

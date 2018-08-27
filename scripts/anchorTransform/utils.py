@@ -3,6 +3,10 @@ import math
 from maya import cmds, mel, OpenMayaUI
 from maya.api import OpenMaya
 
+
+# ----------------------------------------------------------------------------
+
+
 # import pyside, do qt version check for maya 2017 >
 qtVersion = cmds.about(qtVersion=True)
 if qtVersion.startswith("4") or type(qtVersion) not in [str, unicode]:
@@ -14,8 +18,19 @@ else:
     from PySide2.QtCore import *
     from PySide2.QtWidgets import *
     import shiboken2 as shiboken
-    
+
 # ----------------------------------------------------------------------------
+
+FONT = QFont()
+FONT.setFamily("Consolas")
+
+BOLT_FONT = QFont()
+BOLT_FONT.setFamily("Consolas")
+BOLT_FONT.setWeight(100)
+
+
+# ----------------------------------------------------------------------------
+
 
 class UndoChunkContext(object):
     """
@@ -30,17 +45,10 @@ class UndoChunkContext(object):
         
     def __exit__(self, *exc_info):
         cmds.undoInfo(closeChunk=True)
-    
-# ----------------------------------------------------------------------------
 
-FONT = QFont()
-FONT.setFamily("Consolas")
-
-BOLT_FONT = QFont()
-BOLT_FONT.setFamily("Consolas")
-BOLT_FONT.setWeight(100)  
 
 # ----------------------------------------------------------------------------
+
 
 def mayaWindow():
     """
@@ -52,7 +60,8 @@ def mayaWindow():
     window = shiboken.wrapInstance(long(window), QMainWindow)
     
     return window  
-    
+
+
 def getMayaTimeline():
     """
     Get the object name of Maya's timeline.
@@ -61,42 +70,45 @@ def getMayaTimeline():
     :rtype: str
     """
     return mel.eval("$tmpVar=$gPlayBackSlider")
-    
+
+
 # ----------------------------------------------------------------------------
-    
-def findIcon(icon):
+
+
+def divider(parent):
     """
-    Loop over all icon paths registered in the XBMLANGPATH environment 
-    variable ( appending the tools icon path to that list ). If the 
-    icon exist a full path will be returned.
+    Create divider ui widget.
 
-    :param str icon: icon name including extention
-    :return: icon path
-    :rtype: str or None
+    :param QWidget parent:
+    :rtype: QFrame
     """
-    paths = []
+    line = QFrame(parent)
+    line.setFrameShape(QFrame.HLine)
+    line.setFrameShadow(QFrame.Sunken)
+    return line
 
-    # get maya icon paths
-    if os.environ.get("XBMLANGPATH"):     
-        paths = os.environ.get("XBMLANGPATH").split(os.pathsep)                                 
 
-    # append tool icon path
-    paths.insert(
-        0,
-        os.path.join(
-            os.path.split(__file__)[0], 
-            "icons" 
-        ) 
-    )
-
-    # loop all potential paths
-    for path in paths:
-        filepath = os.path.join(path, icon)
-        if os.path.exists(filepath):
-            return filepath
-            
 # ----------------------------------------------------------------------------
-            
+
+
+def getIconPath(name):
+    """
+    Get an icon path based on file name. All paths in the XBMLANGPATH variable
+    processed to see if the provided icon can be found.
+
+    :param str name:
+    :return: Icon path
+    :rtype: str/None
+    """
+    for path in os.environ.get("XBMLANGPATH").split(os.pathsep):
+        iconPath = os.path.join(path, name)
+        if os.path.exists(iconPath):
+            return iconPath.replace("\\", "/")
+
+
+# ----------------------------------------------------------------------------
+
+
 def displayConfirmDialog(invalidAttributes):
     """
     Display confirm dialog, presenting the user with the invalid attributes
@@ -128,12 +140,16 @@ def displayConfirmDialog(invalidAttributes):
         
     return False
 
+
 # ----------------------------------------------------------------------------
+
 
 ATTRIBUTES = ["translate", "rotate", "scale"]
 CHANNELS = ["X", "Y", "Z"]
 
+
 # ----------------------------------------------------------------------------
+
 
 def getInvalidAttributes(transform):
     """
@@ -180,7 +196,9 @@ def getInvalidAttributes(transform):
                 
     return invalidChannels
 
+
 # ----------------------------------------------------------------------------
+
 
 def getMatrix(transform, time=None, matrixType="worldMatrix"):
     """
@@ -199,12 +217,11 @@ def getMatrix(transform, time=None, matrixType="worldMatrix"):
         
     if not time:
         time = cmds.currentTime(query=True)
-    
-    rotatePivot = cmds.getAttr("{0}.rotatePivot".format(transform))[0]
-    
+
     matrix = cmds.getAttr("{0}.{1}".format(transform, matrixType), time=time)
     return OpenMaya.MMatrix(matrix)
-    
+
+
 def decomposeMatrix(matrix, rotOrder, rotPivot):
     """
     Decompose a matrix into translation, rotation and scale values. A 
@@ -245,8 +262,10 @@ def decomposeMatrix(matrix, rotOrder, rotPivot):
     scale = matrixTransform.scale(OpenMaya.MSpace.kTransform)
     
     return [pos, rot, scale]
-    
+
+
 # ----------------------------------------------------------------------------
+
 
 def getInTangent(animCurve, time):
     """
@@ -273,7 +292,8 @@ def getInTangent(animCurve, time):
         return tangent[0]
 
     return "auto"
-    
+
+
 def getOutTangent(animCurve, time):
     """
     Query the out tangent type of the key frame closest but lower than the 
@@ -299,9 +319,11 @@ def getOutTangent(animCurve, time):
         return tangent[0]
 
     return "auto"
-    
+
+
 # ----------------------------------------------------------------------------
-    
+
+
 def applyEulerFilter(transform):
     """
     Apply an euler filter to fix euler issues on curves connected to the 
@@ -327,6 +349,3 @@ def applyEulerFilter(transform):
     # apply euler filter
     if rotationCurves:
         cmds.filterCurve(*rotationCurves, filter="euler")
-    
-    
-    

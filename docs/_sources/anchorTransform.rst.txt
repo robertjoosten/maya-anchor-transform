@@ -1,0 +1,18 @@
+anchorTransform package
+=======================
+
+.. automodule:: anchorTransform
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   anchorTransform.commands
+   anchorTransform.install
+   anchorTransform.ui
+   anchorTransform.utils
+
