@@ -11,6 +11,27 @@ Installation
 * Extract the content of the .rar file anywhere on disk.
 * Drag the anchorTransform.mel file in Maya to permanently install the script.
 
+Usage
+=====
+A button on the MiscTools shelf will be created that will allow easy access
+to the ui, this way the user doesn't need to worry about any of the code. If
+user wishes to not use the shelf button the following commands can be used.
+
+Command line:
+::
+    transform = "cube"
+    driver = None
+    start = 1001
+    end = 1010
+
+    import anchorTransform
+    anchorTransform.anchorTransform(transform, driver, start, end)
+
+Display UI:
+::
+    import anchorTransform.ui
+    anchorTransform.ui.show()
+
 Note
 ====
 Anchor a transform to world or object space for a specific time range. Can be

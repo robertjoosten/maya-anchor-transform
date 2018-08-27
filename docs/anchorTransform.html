@@ -57,6 +57,27 @@
 <li>Drag the anchorTransform.mel file in Maya to permanently install the script.</li>
 </ul>
 </div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>A button on the MiscTools shelf will be created that will allow easy access
+to the ui, this way the user doesn’t need to worry about any of the code. If
+user wishes to not use the shelf button the following commands can be used.</p>
+<p>Command line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">transform</span> <span class="o">=</span> <span class="s2">&quot;cube&quot;</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">start</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">1010</span>
+
+<span class="kn">import</span> <span class="nn">anchorTransform</span>
+<span class="n">anchorTransform</span><span class="o">.</span><span class="n">anchorTransform</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Display UI:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">anchorTransform.ui</span>
+<span class="n">anchorTransform</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="note">
 <h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
 <p>Anchor a transform to world or object space for a specific time range. Can be
@@ -90,6 +111,7 @@ attributes.</p>
   <ul>
 <li><a class="reference internal" href="#">anchorTransform package</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
 <li><a class="reference internal" href="#note">Note</a></li>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
