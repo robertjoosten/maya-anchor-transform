@@ -4,3 +4,4 @@
 + MAYAVERSION:2017 anchorTransform 0.1.1 <PATH>
 + MAYAVERSION:2018 anchorTransform 0.1.1 <PATH>
 + MAYAVERSION:2019 anchorTransform 0.1.1 <PATH>
++ MAYAVERSION:2020 anchorTransform 0.1.1 <PATH>
