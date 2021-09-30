@@ -1,5 +1,6 @@
 import os
 import math
+import six
 from maya import cmds, mel, OpenMayaUI
 from maya.api import OpenMaya
 
@@ -9,7 +10,7 @@ from maya.api import OpenMaya
 
 # import pyside, do qt version check for maya 2017 >
 qtVersion = cmds.about(qtVersion=True)
-if qtVersion.startswith("4") or type(qtVersion) not in [str, unicode]:
+if qtVersion.startswith("4") or not isinstance(qtVersion, six.string_types):
     from PySide.QtGui import *
     from PySide.QtCore import *
     import shiboken
@@ -57,7 +58,10 @@ def mayaWindow():
     :rtype: QMainWindow
     """
     window = OpenMayaUI.MQtUtil.mainWindow()
-    window = shiboken.wrapInstance(long(window), QMainWindow)
+    if six.PY2:
+        window = shiboken.wrapInstance(long(window), QMainWindow)
+    else:
+        window = shiboken.wrapInstance(int(window), QMainWindow)
     
     return window  
 
